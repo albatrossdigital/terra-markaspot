@@ -1,0 +1,11 @@
+document_root: www
+docker_compose:
+  overrides:
+
+hooks:
+  build: |
+    git clone https://github.com/markaspot/mark-a-spot www
+    
+  enable_first: |
+    drush {{alias}} site-install markaspot --db-url=mysql://drupal:drupal@database/drupal -y
+    //drush {{alias}} uli
